@@ -1,0 +1,96 @@
+@import url("/assets/css/styles.css");
+
+.titulo_pagina{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-bottom: var(--margin-m);
+}
+
+.titulo_meus_eventos{
+    color: var(--cor-texto-claro);
+    text-shadow:
+    -3px -3px 0 var(--cor-borda-titulo),
+     3px -3px 0 var(--cor-borda-titulo),
+    -3px  3px 0 var(--cor-borda-titulo),
+     3px  3px 0 var(--cor-borda-titulo);
+    font-family: var(--fonte-titulo);
+    font-size: var(--font-size-xl);
+}
+
+.formulario_inscrição{
+    max-width: var(--max-width-block);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario_campos{
+    max-width: var(--max-width-block);
+    margin: 0 auto;           
+    padding: 80px;           
+    border: 3px solid var(--cor-borda-titulo);  
+    border-radius: 8px;      
+    background-color:white; 
+    color: #333;             
+    font-size: var(--font-size-s);
+
+}
+
+#primeiro-nome,#sobrenome,#data-nascimento,#sexo,#telefone,#cpf,#assessibilidade,#Observações-assessibilidade{
+    width: 500px;            
+    height: 60px;
+    padding: var(--padding-form);           
+    border: 3px solid var(--cor-borda-titulo);  
+    border-radius: 8px;      
+    background-color:white; 
+    color: #333;             
+    font-size: var(--font-size-s);
+    margin-bottom: var(--margin-s);
+}
+
+.aviso_backend{
+    margin-top: var(--margin-m);
+    margin-bottom: var(--margin-l);
+}
+
+.texto_aviso_backend{
+    font-family: var(--fonte-texto);
+    font-weight: bold;
+    font-size: var(--font-size-m);
+    text-align: center;
+}
+
+.botoes_container{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#botao_cancelar_inscrição{
+    padding: var(--padding-form);           
+    border: 3px solid var(--cor-de-fundo-botao-v);  
+    border-radius: 8px;      
+    background-color:var(--cor-de-fundo-botao-v); 
+    color: white;             
+    font-family: var(--fonte-texto);
+    font-weight: bold;
+    font-size: var(--font-size-s);
+}
+
+#botao_salvar_alterações{
+    padding: var(--padding-form);           
+    border: 3px solid var(--cor-borda-titulo);  
+    border-radius: 8px;      
+    background-color:var(--cor-borda-titulo); 
+    color: white;             
+    font-family: var(--fonte-texto);
+    font-weight: bold;
+    font-size: var(--font-size-s);
+}
+
+.footer{
+    margin-top: var(--margin-xl);
+}

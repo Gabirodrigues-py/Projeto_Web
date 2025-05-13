@@ -1,0 +1,163 @@
+<!-- Página que exibe as informações que o cliente utilizou na incrição do evento -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/Header.css">
+    <link rel="stylesheet" href="/assets/css/Footer.css">
+    <link rel="stylesheet" href="/assets/css/My_Sing_UP´s_details.css">
+    <title>Detalhes Inscrição</title>
+    <link rel="shortcut icon" href="/assets/imagens/favicon-512x512.png">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav" aria-label="navegação principal">
+            <ul class="nav_list">
+                <li class="menu_toggle">
+                    <button class="menu_toggle_icon" aria-label="menu hamburguer">
+                        <img src="/assets/imagens/menu.svg" alt="menu hamburguer">
+                    </button>
+                </li>
+
+                <li class="nav_item">
+                    <a href="Index.html">
+                        <img src="/assets/imagens/Logo-225x150.png" alt="Logo do Ticket.fun" class="imagem_header_logo">
+                    </a>
+                </li>
+
+                <li class="nav_item">
+                    <a href="Index.html">
+                        <img src="/assets/imagens/Imagem_Superior.png" alt="Logo do Ticket.fun" class="imagem_header_sanrio">
+                    </a>
+                </li>
+
+                <li class="nav_item">
+                    <a href="About_us_page.html" class="nav_link">Sobre nós</a>
+                </li>
+
+                <li class="nav_item">
+                    <a href="Index.html" class="nav_link">Inicio</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="titulo_pagina">
+        <div class="titulo_meus_eventos">
+            <h1 class="titulo_meus_eventos">Meus Eventos</h1>
+        </div>
+    </section>
+
+    <section class="formulario_inscrição">
+        <form action="" method="post" class="formulario_campos">
+            <label for="primeiro-nome"></label>
+            <input type="text" placeholder="Nome" name="Nome" id="primeiro-nome" class="campo-informaçõese" maxlength="100" required>
+
+            <label for="sobrenome"></label>
+            <input type="text" placeholder="Sobrenome" name="Sobrenome" id="sobrenome" class="campo-informaçõesd" maxlength="100" required>
+
+            <br><br>
+
+            <label for="data-nascimento"></label>
+            <input type="date" name="Data de Nascimento" id="data-nascimento" class="campo-informaçõese" required>
+
+            <label for="sexo"></label>
+            <select id="sexo" name="Sexo" class="campo-informaçõesd" required>
+                <option value="">Selecione o Sexo</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Não Informado">Prefiro não dizer</option>
+            </select>
+
+            <br><br>
+
+            <label for="telefone"></label>
+            <input type="text" placeholder="Telefone" name="Telefone" id="telefone" class="campo-informaçõesd" maxlength="20" required>
+
+            <label for="cpf"></label>
+            <input type="text" placeholder="CPF" name="CPF" id="cpf" class="campo-informções-final" maxlength="14" required>
+
+            <br><br>
+
+            <label for="assessibilidade"></label>
+            <select id="assessibilidade" name="assessibilidade" class="campo-informaçõesd" required>
+                <option value="">Precisa de assessibilidade no local</option>
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+            </select>
+
+            <label for="Observações-assessibilidade"></label>
+            <input type="text" placeholder="Observações de assessibilidade" name="Observações-assessibilidade" id="Observações-assessibilidade" class="campo-informaçõesd" maxlength="500">
+
+            <div class="aviso_backend">
+                <p class="texto_aviso_backend">
+                    As informações das inscrições serão trazidas de forma dinamica através do backend. Na página de eventos, quando for clicado em um evento que o cliente está inscrito, serão trazidas de forma dinâmica as informações daquele evento.
+                </p>
+            </div>
+
+            <div class="botoes_container">
+                <!-- deve ter back end para salvar as alterações no banco -->
+                <button type="submit" id="botao_salvar_alterações">SALVAR ALTERAÇÕES</button>
+                <!-- deve ter back end para cancelar de fato a inscrição -->
+                <button type="button" id="botao_cancelar_inscrição">CANCELAR INSCRIÇÃO</button>
+            </div>
+
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer_columns">
+            <div class="footer_column_logo">
+                <img src="/assets/imagens/Logo-225x150.png" alt="logo Ticket.fun" class="footer_column_img footer_column_list">
+            </div>
+
+            <div class="footer_column">
+                <h4 class="footer_column_titulo">Funcionamento</h4>
+                <ul class="footer_column_list">
+                    <li>
+                        <p>Somos uma plataforma 100% digital!<br> Para suporte ao cliente Segunda a sexta - 08:00 às 18:00</p>
+                    </li>
+
+                    <li>
+                        <a href="mailto:ticket.fun_suporte@gmail.com" class="footer_column_list_a">ticket.fun_suporte@gmail.com</a>
+                    </li>
+
+                    <li>
+                        <a href="tel:0800567489" class="footer_column_list_a">0800 567 489</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_column">
+                <h4 class="footer_column_titulo">Siga nossas redes</h4>
+                <ul class="footer_column_list footer_column_list_redes_sociais">
+                    <li>
+                        <a href="#">
+                            <img src="/assets/imagens/Whatsapp.svg" alt="Whatsapp">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <img src="/assets/imagens/Instagram.svg" alt="Instagram">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <img src="/assets/imagens/Tiktok.svg" alt="Tiktok">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_bottom footer_columns">
+                <p>© 2025 Feito com 💗 por fãs da Hello Kitty.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

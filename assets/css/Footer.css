@@ -1,0 +1,101 @@
+@import url(/assets/css/styles.css);
+
+.footer{
+    background-color: var(--cor-de-fundo-footer);
+    padding: var(--padding-xl) var(--padding-m);
+    color: rgb(170, 169, 169);
+    font-family: var(--fonte-texto);
+    font-weight: 400;
+    font-size: var(--font-size-m);
+    font-weight: bold;
+    line-height: 1.5em;
+}
+
+.footer_column-text{
+    font-weight: 400;
+    margin-top: var(--margin-s);
+}
+
+.footer_columns{
+    display: flex;
+    justify-content: space-around;
+    gap: var(--gap-s);
+    flex-flow: row wrap;
+}
+
+.footer_column_titulo {
+    font-family: var(--fonte-titulo);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--cor-texto-claro);
+    text-shadow:
+      -1px -1px 0 var(--cor-borda-titulo),
+       1px -1px 0 var(--cor-borda-titulo),
+      -1px  1px 0 var(--cor-borda-titulo),
+       1px  1px 0 var(--cor-borda-titulo);
+    text-align: center;
+  }
+   
+
+.footer_column_list{
+    margin-top: var(--margin-s);
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+}
+
+.footer_column_list_a{
+    color: rgb(170, 169, 169);
+    text-decoration: none;
+
+}
+
+.footer_column_list_redes_sociais{
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.footer_column_img{
+    height: auto;
+    width: 280px;
+}
+
+.footer_bottom {
+    margin-top: var(--margin-l);
+    margin-bottom: var(--margin-l);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 1200px){
+    .footer{
+        padding: var(--padding-l);
+    }
+
+    .footer_column-logo{
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .footer_column{
+        flex: basis 30%;
+        margin-top: 20px;
+    }
+
+  }
+
+  @media screen and (max-width: 730px){
+    .footer_columns{
+        flex-direction: column;
+        padding: var(--padding-m) var(--padding-xs);
+    }
+
+  }
+    
+  

@@ -1,0 +1,127 @@
+<!-- Página onde o usuário deve inserir o e-mail que deverá ser enviado as instruções para o reset de senha dele -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/Header.css">
+    <link rel="stylesheet" href="/assets/css/Footer.css">
+    <link rel="stylesheet" href="/assets/css/Send_e-mail_page.css">
+    <title>Redefinir Senha</title>
+    <link rel="shortcut icon" href="/assets/imagens/favicon-512x512.png">
+</head>
+<body>
+    <<header class="header">
+        <nav class="nav" aria-label="navegação principal">
+            <ul class="nav_list">
+                <li class="menu_toggle">
+                    <button class="menu_toggle_icon" aria-label="menu hamburguer">
+                        <img src="/assets/imagens/menu.svg" alt="menu hamburguer">
+                    </button>
+                </li>
+
+
+                <li class="nav_item">
+                    <a href="Index.html">
+                        <img src="/assets/imagens/Logo-225x150.png" alt="Logo do Ticket.fun" class="imagem_header_logo">
+                    </a>
+                </li>
+
+
+                <li class="nav_item">
+                    <a href="Index.html">
+                        <img src="/assets/imagens/Imagem_Superior.png" alt="Logo do Ticket.fun"
+                            class="imagem_header_sanrio">
+                    </a>
+                </li>
+
+
+                <li class="nav_item">
+                    <a href="About_us_page.html" class="nav_link">Sobre nós</a>
+                </li>
+
+
+                <li class="nav_item">
+                    <a href="Login_page.html" class="nav_link">Login
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="titulo_pagina">
+        <div class="titulo_cadastro">
+            <h1 class="titulo_cadastro">Redefinir Senha</h1>
+        </div>
+    </section>
+
+    <section class="campo_enviar_e-mail">
+
+        <form action="" method="post" class="formulario_campos">
+
+            <div class="enviar_e-mail">
+                <p class="texto_enviar_e-mail">
+                    Enviaremos um e-mail para sua redefinição de senha, abaixo insira o e-mail utilizado no seu cadastro existente em nosso site.
+                </p>
+            </div>
+            <label for="email-login-r"></label>
+            <input type="email" placeholder="E-mail" id="email-login-r" class="campo-email" maxlength="100" required>
+            <br><br>
+            <button type="submit" id="botao_enviar_email" class="botao_enviar">ENVIAR E-MAIL</button>
+        </form>
+
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer_columns">
+            <div class="footer_column_logo">
+                <img src="/assets/imagens/Logo-225x150.png" alt="logo Ticket.fun" class="footer_column_img footer_column_list ">
+            </div>
+
+            <div class="footer_column">
+                <h4 class="footer_column_titulo">Funcionamento</h4>
+                <ul class="footer_column_list">
+                    <li>
+                        <p>Somos uma plataforma 100% digital!<br> Para suporte ao cliente Segunda a sexta - 08:00 às 18:00</p>
+                    </li>
+
+                    <li>
+                        <a href="mailto:ticket.fun_suporte@gmail.com" class="footer_column_list_a">ticket.fun_suporte@gmail.com </a>
+                    </li>
+
+                    <li>
+                        <a href="tel:0800567489" class="footer_column_list_a">0800 567 489</a>
+                    </li>
+                </ul>
+            </div>   
+
+            <div class="footer_column">
+                <h4 class="footer_column_titulo">Siga nossas redes</h4>
+                <ul class="footer_column_list footer_column_list_redes_sociais">
+                    <li>
+                        <a href="#">
+                            <img src="/assets/imagens/Whatsapp.svg" alt="Whatsapp">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <img src="/assets/imagens/Instagram.svg" alt="Instagram">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <img src="/assets/imagens/Tiktok.svg" alt="Tiktok">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_bottom footer_columns">
+                <p>© 2025 Feito com 💗 por fãs da Hello Kitty.</p>
+            </div>
+    </footer>
+
+</body>
+</html>
