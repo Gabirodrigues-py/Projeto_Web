@@ -64,7 +64,7 @@ class Cadastro{
      * data da criação do usuario
      * @var string 
      */
-    public $CRIADO;
+    public $data;
 
     /**
      * Data de nascimento do usuario
@@ -82,10 +82,21 @@ class Cadastro{
 
         //INSERIR A VAGA NO BANDO
         $obDatabase = new Database ('usuarios');
-        
-        //ATRIBUIR O ID DA VAGA NA INSTANCIA
+        $this->id = $obDatabase->insert([
+                              'nome'                =>$this->nome,
+                              'sobrenome'           =>$this->sobrenome,
+                              'email'               =>$this->email,
+                              'senha'               =>$this->senha,
+                              'telefone'            =>$this->telefone,
+                              'CPF'                 =>$this->CPF,
+                              'sexo'                =>$this->sexo,
+                              'data'                =>$this->data,
+                              'data_de_nascimento'  =>$this->data_de_nascimento                        
+        ]);
 
-        //RETORNAR SUCESSO
+        
+      //RETORNAR SUCESSO
+      return true;
 
      }
 

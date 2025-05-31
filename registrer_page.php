@@ -30,7 +30,8 @@ if(isset($_POST["nome"],$_POST["sobrenome"],$_POST["data_nascimento"],$_POST["se
 
 
     
-    echo "<pre>"; print_r($obCadastro); echo "</pre>"; exit;
+    header('location: index.html?status=success');
+    exit;
 
 }-
 
