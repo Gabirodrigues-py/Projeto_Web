@@ -21,12 +21,12 @@
           </button>
         </li>
         <li class="nav_item">
-          <a href="index.html">
+          <a href="index.php">
             <img src="assets/imagens/logo-225x150.png" alt="Logo do Ticket.fun" class="imagem_header_logo">
           </a>
         </li>
         <li class="nav_item">
-          <a href="index.html">
+          <a href="index.php">
             <img src="assets/imagens/imagem_superior.png" alt="Logo do Ticket.fun" class="imagem_header_sanrio">
           </a>
         </li>
@@ -34,7 +34,7 @@
           <a href="about_us_page.html" class="nav_link">Sobre nós</a>
         </li>
         <li class="nav_item">
-          <a href="index.html" class="nav_link">Inicio</a>
+          <a href="index.php" class="nav_link">Inicio</a>
         </li>
       </ul>
     </nav>
@@ -47,24 +47,45 @@
   </section>
 
   <section class="campo_login">
-    <form action="" method="post" class="formulario_login">
+    <!-- Começo do form ajustado -->
+    <form action="login_process.php" method="post" class="formulario_login">
       <label for="email-login"></label>
-      <input type="email" placeholder="E-mail" id="email_login" class="campo-email" maxlength="100" required><br>
+      <input
+        type="email"
+        name="email"
+        placeholder="E-mail"
+        id="email_login"
+        class="campo-email"
+        maxlength="100"
+        required
+      ><br>
 
       <label for="senha"></label>
-      <input type="password" placeholder="Senha" name="senha" id="senha" class="campo-senha" maxlength="255" required><br>
+      <input
+        type="password"
+        name="senha"
+        id="senha"
+        class="campo-senha"
+        placeholder="Senha"
+        maxlength="255"
+        required
+      ><br>
 
-      <nav class="botao_entrar">
-        <a href="my_events_page.html" class="botao_entrar" id="botao_entrar_login">ENTRAR</a>
-      </nav>
-
-      <!-- <button type="submit" id="botao-entrar-login" class="botao_entrar formulario_login">ENTRAR</button> -->
+      <!-- botão de submit, usando MESMAS classes para manter o estilo -->
+      <button 
+        type="submit" 
+        id="botao-entrar-login" 
+        class="botao-entrar formulario_login"
+      >
+        ENTRAR
+      </button>
 
       <nav class="campo_links_fim">
         <a href="registrer_page.php" id="Criar-Conta" class="Link-Fim">Criar Conta</a>
         <a href="send_e-mail_page.html" id="Redefinir-Senha" class="Link-Fim">Redefinir Senha</a>
       </nav>
     </form>
+    <!-- Fim do form ajustado -->
   </section>
 
   <footer class="footer">

@@ -1,4 +1,6 @@
-<!-- Página Inicial -->
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,21 +27,31 @@
           </button>
         </li>
         <li class="nav_item">
-          <a href="index.html">
+          <a href="index.php">
             <img src="assets/imagens/logo-225x150.png" alt="Logo do Ticket.fun" class="imagem_header_logo">
           </a>
         </li>
         <li class="nav_item">
-          <a href="index.html">
+          <a href="index.php">
             <img src="assets/imagens/imagem_superior.png" alt="Logo do Ticket.fun" class="imagem_header_sanrio">
           </a>
         </li>
         <li class="nav_item">
           <a href="about_us_page.html" class="nav_link">Sobre nós</a>
         </li>
-        <li class="nav_item">
-          <a href="login_page.html" class="nav_link">Login</a>
-        </li>
+
+        <?php if (isset($_SESSION['usuario_id'])): ?>
+          <li class="nav_item">
+            <a href="profile_page.php" class="nav_link">Perfil</a>
+          </li>
+          <li class="nav_item">
+            <a href="logout.php" class="nav_link">Sair</a>
+          </li>
+        <?php else: ?>
+          <li class="nav_item">
+            <a href="login_process.php" class="nav_link">Login</a>
+          </li>
+        <?php endif; ?>
       </ul>
     </nav>
   </header>
@@ -71,7 +83,7 @@
         <div class="evento_list_container">
           <h3 class="evento_list_item-titulo">Imersão Hello Kitty</h3>
           <div class="botao_informações">
-            <a href="/event_imersao_description_page.html" class="texto_informações">Informações</a>
+            <a href="event_imersao_description_page.html" class="texto_informações">Informações</a>
           </div>
         </div>
       </li>
@@ -81,7 +93,7 @@
         <div class="evento_list_container">
           <h3 class="evento_list_item-titulo">Foodtruck Hello Kitty</h3>
           <div class="botao_informações">
-            <a href="/event_foodtruck_description_page.html" class="texto_informações">Informações</a>
+            <a href="event_foodtruck_description_page.html" class="texto_informações">Informações</a>
           </div>
         </div>
       </li>
@@ -91,7 +103,7 @@
         <div class="evento_list_container">
           <h3 class="evento_list_item-titulo">Oficina de desenho Hello Kitty</h3>
           <div class="botao_informações">
-            <a href="/event_desenho_descripition_page.html" class="texto_informações">Informações</a>
+            <a href="event_desenho_descripition_page.html" class="texto_informações">Informações</a>
           </div>
         </div>
       </li>
@@ -101,7 +113,7 @@
         <div class="evento_list_container">
           <h3 class="evento_list_item-titulo">Cinema Hello Kitty</h3>
           <div class="botao_informações">
-            <a href="/event_cinema_description_page.html" class="texto_informações">Informações</a>
+            <a href="event_cinema_description_page.html" class="texto_informações">Informações</a>
           </div>
         </div>
       </li>

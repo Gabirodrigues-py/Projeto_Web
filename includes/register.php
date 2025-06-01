@@ -23,14 +23,14 @@
 
 
                 <li class="nav_item">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="assets/imagens/logo-225x150.png" alt="Logo do Ticket.fun" class="imagem_header_logo">
                     </a>
                 </li>
 
 
                 <li class="nav_item">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="assets/imagens/imagem_superior.png" alt="Logo do Ticket.fun"
                             class="imagem_header_sanrio">
                     </a>
@@ -43,7 +43,7 @@
 
 
                 <li class="nav_item">
-                    <a href="index.html" class="nav_link">Inicio
+                    <a href="index.php" class="nav_link">Inicio
                     </a>
                 </li>
             </ul>
@@ -335,7 +335,7 @@
             </div>
             <div class="footer_links">
                 <ul class="footer_list">
-                    <li><a href="index.html" class="footer_link">Início</a></li>
+                    <li><a href="index.php" class="footer_link">Início</a></li>
                     <li><a href="about_us_page.html" class="footer_link">Sobre Nós</a></li>
                     <li><a href="#" class="footer_link">Eventos</a></li>
                     <li><a href="#" class="footer_link">Contato</a></li>

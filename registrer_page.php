@@ -30,10 +30,10 @@ if(isset($_POST["nome"],$_POST["sobrenome"],$_POST["data_nascimento"],$_POST["se
 
 
     
-    header('location: index.html?status=success');
+    header('location: index.php?status=success');
     exit;
 
-}-
+}
 
 // Inclui o HTML do formulário (frontend restaurado e com nomes ajustados)
 require __DIR__."/includes/register.php";
