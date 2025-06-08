@@ -91,10 +91,11 @@ class Cadastro{
                               'CPF'                 =>$this->CPF,
                               'sexo'                =>$this->sexo,
                               'data'                =>$this->data,
-                              'data_de_nascimento'  =>$this->data_de_nascimento                        
+                              'data_de_nascimento'  =>$this->data_de_nascimento,
+                              'pais_residencia'     =>$this->pais_residencia
         ]);
 
-        
+
       //RETORNAR SUCESSO
       return true;
 
