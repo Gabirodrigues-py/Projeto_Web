@@ -1,19 +1,15 @@
 <?php
 session_start();
 
-// Variável que conterá mensagem de erro (se houver)
 $erro = '';
 
-// Se for POST, processa o login; senão (GET) cai direto no include ao final
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 1) Captura e sanitiza os dados vindos do formulário
     $email = trim($_POST['email']   ?? '');
     $senha = trim($_POST['senha']   ?? '');
 
-    if ($email === '' || $senha === '') {
+    if (empty($email) || empty($senha)) {
         $erro = 'Por favor, preencha todos os campos.';
     } else {
-        // 2) Conexão ao banco de dados (mysqli)
         $servidor = "localhost";
         $usuario  = "root";
         $senhaBd  = "";
@@ -25,8 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $conn->set_charset("utf8");
 
-        // 3) Busca o usuário pelo e-mail
-        $sql  = "SELECT id, nome, email, senha FROM usuarios WHERE email = ?";
+        // O SQL busca a nova coluna 'is_admin'
+        $sql  = "SELECT id, nome, email, senha, is_admin FROM usuarios WHERE email = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -35,20 +31,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($resultado->num_rows !== 1) {
             $erro = 'Usuário não encontrado.';
         } else {
-            $usuario = $resultado->fetch_assoc();
+            $usuario_db = $resultado->fetch_assoc();
 
-            // 4) Agora, em vez de comparar texto puro, usamos password_verify()
-            if (password_verify($senha, $usuario['senha'])) {
-                // Login bem-sucedido: guarda dados na sessão
-                $_SESSION['usuario_id']    = $usuario['id'];
-                $_SESSION['usuario_nome']  = $usuario['nome'];
-                $_SESSION['usuario_email'] = $usuario['email'];
+            if (password_verify($senha, $usuario_db['senha'])) {
+                // Login bem-sucedido: guarda todos os dados na sessão
+                $_SESSION['usuario_id']    = $usuario_db['id'];
+                $_SESSION['usuario_nome']  = $usuario_db['nome'];
+                $_SESSION['usuario_email'] = $usuario_db['email'];
+                // Salva o status de admin na sessão
+                $_SESSION['is_admin']      = (bool)$usuario_db['is_admin'];
 
-                // Fecha conexões e redireciona
                 $stmt->close();
                 $conn->close();
 
-                header("Location: my_events_page.html");
+                // Redireciona para a página de perfil após o login
+                header("Location: profile_page.php");
                 exit;
             } else {
                 $erro = 'Senha incorreta.';
@@ -60,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Se GET ou se chegou aqui com $erro preenchido, exibimos o formulário novamente
+// Se o método não for POST ou se houver erro, exibe o formulário
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -76,13 +73,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
   <?php if ($erro !== ''): ?>
-    <div style="color: red; text-align: center; margin: 1em 0;">
+    <div style="color: red; text-align: center; margin: 1em 0; background-color: #ffdddd; padding: 10px; border-radius: 5px;">
       <?= htmlentities($erro, ENT_QUOTES, 'UTF-8') ?>
     </div>
   <?php endif; ?>
 
   <?php
-  // Inclui o HTML puro do formulário de login (não modifique nada dentro deste arquivo)
+  // Inclui o HTML do formulário de login
   include __DIR__ . '/includes/login_page.php';
   ?>
 

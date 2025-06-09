@@ -20,7 +20,7 @@ class Cadastro{
     /**
      * Sobrenome do Usuario
      * @var string
-     * 
+     *
      */
     public $sobrenome;
 
@@ -38,7 +38,7 @@ class Cadastro{
 
     /**
      * telefone de contato do usuario
-     * @var string 
+     * @var string
      */
     public $telefone;
 
@@ -46,7 +46,7 @@ class Cadastro{
      * CPF
      * @var string
      */
-    public $CPF; // Note: Property name is CPF (uppercase)
+    public $CPF;
 
     /**
      * genero do usuario
@@ -55,14 +55,13 @@ class Cadastro{
     public $sexo;
 
     /**
-     * onde usuario reside
-     * @var string
+     * Propriedade 'pais_residencia' foi removida.
      */
-    public $pais_residencia;
+    // public $pais_residencia;
 
     /**
      * data da criação do usuario
-     * @var string 
+     * @var string
      */
     public $data;
 
@@ -70,10 +69,10 @@ class Cadastro{
      * Data de nascimento do usuario
      * @var string
      */
-     public $data_de_nascimento; // Added based on previous code analysis
+     public $data_de_nascimento;
 
      /**
-      *Método responsavel por cadastrar o usuario no banco 
+      *Método responsavel por cadastrar o usuario no banco
       *@return boolean
       */
      public function cadastrar(){
@@ -91,8 +90,8 @@ class Cadastro{
                               'CPF'                 =>$this->CPF,
                               'sexo'                =>$this->sexo,
                               'data'                =>$this->data,
-                              'data_de_nascimento'  =>$this->data_de_nascimento,
-                              'pais_residencia'     =>$this->pais_residencia
+                              'data_de_nascimento'  =>$this->data_de_nascimento
+                              //'pais_residencia' foi removido
         ]);
 
 
@@ -100,6 +99,4 @@ class Cadastro{
       return true;
 
      }
-
-
 }

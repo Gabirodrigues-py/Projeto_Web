@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require __DIR__."/vendor/autoload.php"; // Necessário para o Database
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,8 +14,38 @@
   <link rel="stylesheet" href="assets/css/event_list.css">
   <link rel="stylesheet" href="assets/css/footer.css">
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+
   <title>Inicio</title>
   <link rel="shortcut icon" href="assets/imagens/favicon-512x512.png">
+
+  <style>
+    /* Estilos básicos para o carrossel */
+    .carousel .slick-slide {
+        margin: 0 15px; /* Espaçamento entre os slides */
+    }
+    .carousel .slick-slide img {
+        width: 100%;
+        height: 250px; /* Altura fixa para a imagem */
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .carousel .slick-slide h3 {
+        text-align: center;
+        padding: 10px;
+        font-family: var(--fonte-texto);
+    }
+    .carousel a {
+        text-decoration: none;
+        color: var(--cor-texto);
+    }
+    .carousel .slick-prev:before, .carousel .slick-next:before {
+        color: var(--cor-borda-titulo);
+    }
+  </style>
+
 </head>
 
 <body>
@@ -67,57 +98,32 @@
   </section>
 
   <section class="cartaz">
-    <form>
-      <input 
-        type="search" 
-        placeholder="Digite sua busca"
-        class="cartaz_pesquisa" 
-        aria-label="campo de busca de eventos" />
-    </form>
 
     <h2 class="Eventos_disponíveis">Eventos Disponíveis</h2>
 
-    <ul class="evento_list">
-      <li class="evento_list_item">
-        <img src="assets/imagens/imersao.png" alt="Imersão Hello Kitty">
-        <div class="evento_list_container">
-          <h3 class="evento_list_item-titulo">Imersão Hello Kitty</h3>
-          <div class="botao_informações">
-            <a href="event_imersao_description_page.html" class="texto_informações">Informações</a>
-          </div>
-        </div>
-      </li>
+    <div class="carousel">
+      <?php
+        // Lógica para buscar eventos do banco de dados
+        try {
+            $db = new \App\Db\Database('eventos');
+            // Busca eventos cuja data é hoje ou no futuro, ordenados pela data mais próxima
+            $eventos = $db->execute("SELECT * FROM eventos WHERE data_evento >= CURDATE() ORDER BY data_evento ASC, hora_evento ASC");
 
-      <li class="evento_list_item">
-        <img src="assets/imagens/foodtruck.png" alt="FoodTruck Hello Kitty" class="evento_list_imagem">
-        <div class="evento_list_container">
-          <h3 class="evento_list_item-titulo">Foodtruck Hello Kitty</h3>
-          <div class="botao_informações">
-            <a href="event_foodtruck_description_page.html" class="texto_informações">Informações</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="evento_list_item">
-        <img src="assets/imagens/aula_de_desenho.png" alt="Oficina de desenho Hello Kitty" class="evento_list_imagem">
-        <div class="evento_list_container">
-          <h3 class="evento_list_item-titulo">Oficina de desenho Hello Kitty</h3>
-          <div class="botao_informações">
-            <a href="event_desenho_descripition_page.html" class="texto_informações">Informações</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="evento_list_item">
-        <img src="assets/imagens/cinema.png" alt="Cinema Hello Kitty" class="evento_list_imagem">
-        <div class="evento_list_container">
-          <h3 class="evento_list_item-titulo">Cinema Hello Kitty</h3>
-          <div class="botao_informações">
-            <a href="event_cinema_description_page.html" class="texto_informações">Informações</a>
-          </div>
-        </div>
-      </li>
-    </ul>
+            while($evento = $eventos->fetchObject()){
+                echo '<div>';
+                // O link agora aponta para evento_detalhes.php, passando o ID do evento
+                echo '  <a href="evento_detalhes.php?id='.$evento->id.'">';
+                echo '    <img src="'.$evento->imagem.'" alt="'.htmlspecialchars($evento->titulo).'">';
+                echo '    <h3>'.htmlspecialchars($evento->titulo).'</h3>';
+                echo '  </a>';
+                echo '</div>';
+            }
+        } catch (Exception $e) {
+            echo '<p>Não foi possível carregar os eventos. Tente novamente mais tarde.</p>';
+            // Opcional: logar o erro $e->getMessage() para depuração.
+        }
+      ?>
+    </div>
   </section>
 
   <footer class="footer">
@@ -155,5 +161,40 @@
       </div>
     </div>
   </footer>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+        $('.carousel').slick({
+          slidesToShow: 4, // Mostrar 4 slides de uma vez
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          dots: true,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+              }
+            }
+          ]
+        });
+      });
+  </script>
+
 </body>
 </html>
