@@ -160,7 +160,7 @@ $conn->close();
           <a href="profile_page.php" class="Link-Menu-Lateral" id="perfil">PERFIL</a>
         </li>
         <li>
-          <a href="my_events_page.html" class="Link-Menu-Lateral" id="meus_eventos">MEUS EVENTOS</a>
+          <a href="My_Events_page.php" class="Link-Menu-Lateral" id="meus_eventos">MEUS EVENTOS</a>
         </li>
         <li>
           <a href="password_page.php" class="Link-Menu-Lateral" id="senhas">SENHAS</a>

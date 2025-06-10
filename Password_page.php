@@ -106,7 +106,7 @@ $conn->close();
         <nav class="lista_menu">
             <ul class="menu_superior_itens">
                 <li><a href="/Projeto_Web/profile_page.php" class="Link-Menu-Lateral" id="perfil">PERFIL</a></li>
-                <li><a href="/Projeto_Web/my_events_page.html" class="Link-Menu-Lateral" id="meus_eventos">MEUS EVENTOS</a></li>
+                <li><a href="/Projeto_Web/My_Events_page.php" class="Link-Menu-Lateral" id="meus_eventos">MEUS EVENTOS</a></li>
                 <li><a href="/Projeto_Web/password_page.php" class="Link-Menu-Lateral" id="senhas">SENHAS</a></li>
             </ul>
         </nav>

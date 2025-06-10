@@ -1,5 +1,9 @@
 <?php
+// BACK-END CORRIGIDO: A conexão com o banco de dados foi padronizada.
+
 session_start();
+require __DIR__ . "/vendor/autoload.php";
+use \App\Db\Database;
 
 $erro = '';
 
@@ -10,54 +14,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($email) || empty($senha)) {
         $erro = 'Por favor, preencha todos os campos.';
     } else {
-        $servidor = "localhost";
-        $usuario  = "root";
-        $senhaBd  = "";
-        $banco    = "hello_kitty";
+        // Usa a classe Database para consistência com o resto do projeto.
+        $db = new Database('usuarios');
+        $resultado = $db->execute("SELECT id, nome, email, senha, is_admin FROM usuarios WHERE email = ?", [$email]);
 
-        $conn = new mysqli($servidor, $usuario, $senhaBd, $banco);
-        if ($conn->connect_error) {
-            die("Erro na conexão: " . $conn->connect_error);
-        }
-        $conn->set_charset("utf8");
-
-        // O SQL busca a nova coluna 'is_admin'
-        $sql  = "SELECT id, nome, email, senha, is_admin FROM usuarios WHERE email = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-
-        if ($resultado->num_rows !== 1) {
+        if ($resultado->rowCount() !== 1) {
             $erro = 'Usuário não encontrado.';
         } else {
-            $usuario_db = $resultado->fetch_assoc();
+            $usuario_db = $resultado->fetch(PDO::FETCH_ASSOC);
 
             if (password_verify($senha, $usuario_db['senha'])) {
-                // Login bem-sucedido: guarda todos os dados na sessão
                 $_SESSION['usuario_id']    = $usuario_db['id'];
                 $_SESSION['usuario_nome']  = $usuario_db['nome'];
                 $_SESSION['usuario_email'] = $usuario_db['email'];
-                // Salva o status de admin na sessão
                 $_SESSION['is_admin']      = (bool)$usuario_db['is_admin'];
 
-                $stmt->close();
-                $conn->close();
-
-                // Redireciona para a página de perfil após o login
-                header("Location: profile_page.php");
+// Verifica se há uma URL de redirecionamento.
+                if (isset($_REQUEST['redirect_url'])) {
+                    header('Location: ' . $_REQUEST['redirect_url']);
+                } else {
+                    // Se não houver, redireciona para a página de perfil padrão.
+                    header("Location: profile_page.php");
+                }
                 exit;
             } else {
                 $erro = 'Senha incorreta.';
             }
         }
-
-        $stmt->close();
-        $conn->close();
     }
 }
 
-// Se o método não for POST ou se houver erro, exibe o formulário
+// O código abaixo não foi alterado, ele carrega seu front-end original.
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -79,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php endif; ?>
 
   <?php
-  // Inclui o HTML do formulário de login
+  // Inclui o HTML do seu formulário de login sem alterações.
   include __DIR__ . '/includes/login_page.php';
   ?>
 

@@ -1,19 +1,16 @@
 <?php
-require __DIR__ . "/vendor/autoload.php";
 session_start();
-
-use \App\Db\Database;
-
-// Verifica se o ID foi passado
-if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+// BACK-END CORRIGIDO: A verificação de permissão foi padronizada.
+if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
     header('Location: index.php');
     exit;
 }
+require __DIR__ . "/vendor/autoload.php";
+use \App\Db\Database;
 
-$id = $_GET['id'];
 $db = new Database('eventos');
-$resultado = $db->execute("SELECT * FROM eventos WHERE id = ?", [$id]);
-$evento = $resultado->fetchObject();
+// Busca todos os eventos ordenados pela data do evento
+$eventos = $db->execute("SELECT * FROM eventos ORDER BY data_evento ASC");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,8 +19,9 @@ $evento = $resultado->fetchObject();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/Event_Details_page.css">
-  <title><?= htmlspecialchars($evento->titulo) ?></title>
+  <link rel="stylesheet" href="assets/css/My_Events.css">
+  <link rel="stylesheet" href="assets/css/Event_list.css">
+  <title>Painel Administrativo</title>
   <link rel="shortcut icon" href="assets/imagens/favicon-512x512.png">
 </head>
 <body>
@@ -64,36 +62,23 @@ $evento = $resultado->fetchObject();
     </nav>
   </header>
 
-  <section class="container_banner">
-    <div class="container_img">
-      <img src="<?= htmlspecialchars($evento->imagem) ?>" alt="Banner do evento <?= htmlspecialchars($evento->titulo) ?>">
-    </div>
-    <div class="botao_e_informações">
-      <h2 class="informações"><?= htmlspecialchars($evento->titulo) ?></h2>
-      <a href="sign_up_page.php?evento_id=<?= $evento->id ?>">
-        <button type="button" class="botao_inscrever">INSCREVER-SE</button>
-      </a>
+  <section class="titulo_pagina">
+    <div class="titulo_senhas">
+      <h1 class="titulo_senhas">Painel Administrativo</h1>
     </div>
   </section>
 
-  <section class="foto_e_informações">
-    <div class="foto_lateral">
-      <img src="<?= htmlspecialchars($evento->imagem) ?>" alt="Foto do evento <?= htmlspecialchars($evento->titulo) ?>" class="foto">
-    </div>
-    <div class="descrição_evento">
-      <h3 class="titulo_descrição">DESCRIÇÃO DO EVENTO</h3>
-      <p class="texto_descrição"><?= nl2br(htmlspecialchars($evento->descricao)) ?></p>
-      <h3 class="titulo_descrição">INFORMAÇÕES GERAIS:</h3>
-      <div class="conteudo_informações">
-        <ul class="conteudo_informações">
-          <li><strong>Data:</strong> <?= date('d/m/Y', strtotime($evento->data_evento)) ?></li>
-          <li><strong>Hora:</strong> <?= date('H:i', strtotime($evento->hora_evento)) ?></li>
-          <li><strong>Local:</strong> <?= htmlspecialchars($evento->local) ?></li>
-        </ul>
-      </div>
-      <h3 class="titulo_descrição">OBSERVAÇÕES E REGRAS DO EVENTO</h3>
-      <p class="texto_observações_regras"><?= nl2br(htmlspecialchars($evento->observacao)) ?></p>
-    </div>
+  <section>
+    <h2 class="titulo_eventos">Eventos Cadastrados</h2>
+    <ul class="evento_list">
+      <?php while($evento = $eventos->fetchObject()): ?>
+        <li class="evento_list_item">
+          <img src="<?= htmlspecialchars($evento->imagem) ?>" alt="<?= htmlspecialchars($evento->titulo) ?>" class="filme_list_imagem">
+          <h3 class="evento_list_item-titulo"><?= htmlspecialchars($evento->titulo) ?></h3>
+          <a href="excluir_evento.php?id=<?= $evento->id ?>" class="botao_informações">Excluir evento</a>
+        </li>
+      <?php endwhile; ?>
+    </ul>
   </section>
 
   <footer class="footer">
@@ -126,4 +111,3 @@ $evento = $resultado->fetchObject();
   </footer>
 </body>
 </html>
-o
