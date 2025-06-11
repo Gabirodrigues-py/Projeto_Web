@@ -28,7 +28,7 @@ $inscricoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/my_events.css">
+    <link rel="stylesheet" href="assets/css/My_Events.css">
     <title>Meus Eventos</title>
     <link rel="shortcut icon" href="assets/imagens/favicon-512x512.png">
     <style>
@@ -123,11 +123,11 @@ $inscricoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <p><?= htmlspecialchars($insc['descricao']) ?></p>
                     
                     <div class="botoes_container">
-                        <a href="my_sing_up_s_details_page.html?inscricao_id=<?= $insc['inscricao_id'] ?>" class="botao_entrar" id="botao_entrar_login">DETALHES</a>
+                        <a href="my_sing_up_s_details_page.html?inscricao_id=<?= $insc['inscricao_id'] ?>" class="botao_my_events" id="botao_my_events">DETALHES</a>
 
                         <form action="cancelar_inscricao.php" method="post" onsubmit="return confirm('Tem certeza que deseja cancelar a inscrição?')" style="margin: 0;">
                             <input type="hidden" name="inscricao_id" value="<?= $insc['inscricao_id'] ?>">
-                            <button type="submit" class="botao_entrar" style="background-color: #ff3b3f; border: none; cursor:pointer;">CANCELAR</button>
+                            <button type="submit" class="botao_my_events" id="botao_my_events" style="background-color: #ff3b3f; border: none; cursor:pointer; ">CANCELAR</button>
                         </form>
                     </div>
                 </div>

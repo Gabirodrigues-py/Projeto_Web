@@ -48,13 +48,13 @@
     background-color:var(--cor-borda-titulo) ;
 }
 
-.botao_entrar{
+.botao_my_events{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#botao_entrar_login{
+#botao_my_events{
     width: 400px;            
     height: 40px;
     padding: var(--padding-form);           
