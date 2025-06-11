@@ -123,11 +123,11 @@ $inscricoes = $stmt->fetchAll(PDO::FETCH_ASSOC); //
                     <p><?= htmlspecialchars($insc['descricao']) ?></p>
                     
                     <div class="botoes_container">
-                        <a href="my_sing_up_s_details_page.php?inscricao_id=<?= $insc['inscricao_id'] ?>" class="botao_entrar">DETALHES</a>
+                        <a href="my_sing_up_s_details_page.html?inscricao_id=<?= $insc['inscricao_id'] ?>" class="botao_entrar" id="botao_entrar_login">DETALHES</a>
 
                         <form action="cancelar_inscricao.php" method="post" onsubmit="return confirm('Tem certeza que deseja cancelar a inscrição?')" style="margin: 0;">
                             <input type="hidden" name="inscricao_id" value="<?= $insc['inscricao_id'] ?>">
-                            <button type="submit" class="botao_entrar" style="background-color: #ff3b3f; border: none; cursor:pointer;">CANCELAR</button>
+                            <button type="submit" class="botao_my_events" id="botao_cancelar">CANCELAR</button>
                         </form>
                     </div>
                 </div>

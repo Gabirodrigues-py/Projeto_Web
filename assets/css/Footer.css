@@ -3,12 +3,13 @@
 .footer{
     background-color: var(--cor-de-fundo-footer);
     padding: var(--padding-xl) var(--padding-m);
-    color: rgb(170, 169, 169);
+    color: rgb(141, 141, 141);
     font-family: var(--fonte-texto);
     font-weight: 400;
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-l);
     font-weight: bold;
     line-height: 1.5em;
+    letter-spacing: 0.1em
 }
 
 .footer_column-text{
@@ -47,7 +48,7 @@
 }
 
 .footer_column_list_a{
-    color: rgb(170, 169, 169);
+    color: rgb(141, 141, 141);
     text-decoration: none;
 
 }
