@@ -377,7 +377,7 @@ if (!$detalhes) { //
         }
 
 
-        /* FOOTER: Estilos replicados de Footer.css */
+        /* FOOTER: Estilos replicados de footer1.css */
         .footer {
             background-color: var(--cor-de-fundo-footer);
             padding: var(--padding-xl) var(--padding-m);

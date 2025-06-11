@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/banner.css">
   <link rel="stylesheet" href="assets/css/cartaz.css">
   <link rel="stylesheet" href="assets/css/event_list.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/footer1.css">
 
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>

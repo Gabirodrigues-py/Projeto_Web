@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/vendor/autoload.php'; //
+require __DIR__ . '/vendor/autoload.php';
 session_start(); //
 if (!isset($_SESSION['usuario_id'])) { //
     header('Location: login_process.php'); //
@@ -27,7 +27,7 @@ $inscricoes = $stmt->fetchAll(PDO::FETCH_ASSOC); //
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/footer1.css">
     <link rel="stylesheet" href="assets/css/My_Events.css">
     <title>Meus Eventos</title>
     <link rel="shortcut icon" href="assets/imagens/favicon-512x512.png">

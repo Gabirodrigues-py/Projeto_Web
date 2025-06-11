@@ -105,7 +105,7 @@ if(isset($_POST['titulo'], $_POST['descricao'], $_POST['data_evento'], $_POST['h
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/footer1.css">
     <title>Cadastro de Evento</title>
     <link rel="shortcut icon" href="assets/imagens/favicon-512x512.png">
 
@@ -310,7 +310,7 @@ if(isset($_POST['titulo'], $_POST['descricao'], $_POST['data_evento'], $_POST['h
             padding: 15px 10px;
             font-weight: bold;
         }
-        /* Media Queries básicas para responsividade, replicadas de Header.css e Footer.css */
+        /* Media Queries básicas para responsividade, replicadas de Header.css e footer1.css */
         @media screen and (max-width: 1200px) {
             .nav_list {
                 row-gap: var(--gap-s);
