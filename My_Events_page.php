@@ -1,24 +1,24 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-session_start();
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: login_process.php');
-    exit;
+require __DIR__ . '/vendor/autoload.php'; //
+session_start(); //
+if (!isset($_SESSION['usuario_id'])) { //
+    header('Location: login_process.php'); //
+    exit; //
 }
 
-use \App\Db\Database;
+use \App\Db\Database; //
 
-$uid = $_SESSION['usuario_id'];
+$uid = $_SESSION['usuario_id']; //
 
-$db = new Database();
-$stmt = $db->execute(
+$db = new Database(); //
+$stmt = $db->execute( //
     'SELECT e.id, e.titulo, e.descricao, e.imagem, i.id AS inscricao_id
      FROM eventos e
      JOIN inscricoes i ON e.id = i.evento_id
      WHERE i.usuario_id = ?',
      [$uid]
 );
-$inscricoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$inscricoes = $stmt->fetchAll(PDO::FETCH_ASSOC); //
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -123,7 +123,7 @@ $inscricoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <p><?= htmlspecialchars($insc['descricao']) ?></p>
                     
                     <div class="botoes_container">
-                        <a href="my_sing_up_s_details_page.html?inscricao_id=<?= $insc['inscricao_id'] ?>" class="botao_entrar" id="botao_entrar_login">DETALHES</a>
+                        <a href="my_sing_up_s_details_page.php?inscricao_id=<?= $insc['inscricao_id'] ?>" class="botao_entrar">DETALHES</a>
 
                         <form action="cancelar_inscricao.php" method="post" onsubmit="return confirm('Tem certeza que deseja cancelar a inscrição?')" style="margin: 0;">
                             <input type="hidden" name="inscricao_id" value="<?= $insc['inscricao_id'] ?>">

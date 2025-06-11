@@ -25,24 +25,101 @@
     /* Estilos básicos para o carrossel */
     .carousel .slick-slide {
         margin: 0 15px; /* Espaçamento entre os slides */
+        box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
     }
     .carousel .slick-slide img {
         width: 100%;
         height: 250px; /* Altura fixa para a imagem */
         object-fit: cover;
         border-radius: 8px;
+        border: 3px solid var(--cor-borda-titulo); /* Adiciona borda rosa às imagens */
+        box-shadow: var(--box-shadow-card); /* Adiciona sombra para dar profundidade */
     }
     .carousel .slick-slide h3 {
         text-align: center;
-        padding: 10px;
-        font-family: var(--fonte-texto);
+        padding: 10px 5px; /* Ajusta o padding do título */
+        font-family: var(--fonte-texto); /* Usa a fonte do projeto */
+        color: var(--cor-texto); /* Usa a cor de texto padrão do projeto */
+        font-size: var(--font-size-s); /* Tamanho de fonte padrão para itens de lista */
+        margin-top: var(--margin-xs); /* Pequena margem superior */
     }
     .carousel a {
         text-decoration: none;
         color: var(--cor-texto);
+        display: block; /* Garante que o link ocupe todo o slide para clique */
+        padding: 10px; /* Espaçamento dentro do item clicável */
+        background-color: white; /* Fundo branco para os cards do carrossel */
+        border-radius: 8px; /* Borda arredondada para os cards */
+        box-shadow: var(--box-shadow-card); /* Sombra para os cards */
+        transition: transform 0.3s ease-in-out; /* Efeito suave ao passar o mouse */
     }
-    .carousel .slick-prev:before, .carousel .slick-next:before {
-        color: var(--cor-borda-titulo);
+    .carousel a:hover {
+        transform: translateY(-5px); /* Levanta o card ligeiramente ao passar o mouse */
+    }
+
+    /* Estilização dos botões de navegação (setas) do Slick Carousel */
+    .carousel .slick-prev,
+    .carousel .slick-next {
+        font-size: 0; /* Esconde o texto padrão */
+        line-height: 1;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        width: 30px; /* Largura do botão */
+        height: 30px; /* Altura do botão */
+        padding: 0;
+        cursor: pointer;
+        color: transparent;
+        border: none;
+        outline: none;
+        background: var(--cor-borda-titulo); /* Fundo rosa */
+        border-radius: 50%; /* Torna os botões circulares */
+        z-index: 100; /* Garante que estejam acima das imagens */
+        box-shadow: var(--box-shadow-card); /* Sombra para os botões */
+    }
+
+    .carousel .slick-prev {
+        left: -40px; /* Posição à esquerda fora do carrossel */
+    }
+
+    .carousel .slick-next {
+        right: -40px; /* Posição à direita fora do carrossel */
+    }
+
+    .carousel .slick-prev:before,
+    .carousel .slick-next:before {
+        font-family: 'slick'; /* Fonte de ícones do Slick */
+        font-size: 20px; /* Tamanho do ícone */
+        line-height: 1;
+        color: var(--cor-texto-claro); /* Cor branca para as setas */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Ajuste para pontos de navegação (dots) */
+    .slick-dots li button:before {
+        font-size: 10px; /* Tamanho dos pontos */
+        color: var(--cor-borda-titulo); /* Cor rosa para os pontos */
+    }
+    .slick-dots li.slick-active button:before {
+        color: var(--cor-de-fundo-botao-v); /* Cor vermelha para o ponto ativo */
+    }
+
+    /* Media Queries para responsividade */
+    @media screen and (max-width: 1200px) {
+      .carousel .slick-prev { left: -20px; }
+      .carousel .slick-next { right: -20px; }
+    }
+
+    @media screen and (max-width: 768px) {
+      .carousel .slick-prev { left: 5px; } /* Ajusta posição para não sair da tela */
+      .carousel .slick-next { right: 5px; }
+      .carousel .slick-slide { margin: 0 5px; } /* Menor espaçamento em telas menores */
     }
   </style>
 
@@ -172,6 +249,8 @@
           autoplay: true,
           autoplaySpeed: 3000,
           dots: true,
+          prevArrow: '<button type="button" class="slick-prev"></button>', /* Renderiza o botão personalizado */
+          nextArrow: '<button type="button" class="slick-next"></button>', /* Renderiza o botão personalizado */
           responsive: [
             {
               breakpoint: 1024,
@@ -197,4 +276,4 @@
   </script>
 
 </body>
-</html>
+</html>e

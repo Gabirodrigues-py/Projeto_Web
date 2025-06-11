@@ -74,7 +74,7 @@
             <br><br>
 
             <label for="data-nascimento"></label>
-            <input type="date" name="data_nascimento" id="data-nascimento" class="campo-informaçõese" required>
+            <input type="date" name="data_nascimento" id="data-nascimento" class="campo-informaçõese" required title="Data de Nascimento">
 
             <label for="sexo"></label>
             <select id="sexo" name="sexo" class="campo-informaçõesd" required>
