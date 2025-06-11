@@ -24,8 +24,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
- 
+    /* Ajustado para centralizar mais verticalmente */
+    margin-top: 100px; /* Adicionado um margin-top para empurrar para baixo */
+    margin-bottom: var(--margin-xl); /* Mantém a margem inferior para o footer */
 }
 
 .formulario_login{
@@ -35,26 +36,32 @@
     flex-direction: column;
 }
 
-.campo_login{
+/* O .campo_login está sendo definido duas vezes no seu CSS, isso pode causar conflitos.
+   É melhor combinar as propriedades. A primeira definição de .campo_login
+   que tem 'margin: 0 auto; display: flex; justify-content: center; align-items: center;'
+   define o layout externo, enquanto a segunda (abaixo) define o estilo da caixa.
+   Vamos garantir que o margin-top e margin-bottom estejam na regra mais externa.
+*/
+.campo_login{ /* Esta é a segunda ocorrência, que define a estilização da caixa */
     max-width: 750px;
-    margin: 0 auto;           
-    padding: 80px;           
-    border: 3px solid var(--cor-borda-titulo);  
-    border-radius: 8px;      
-    background-color:white; 
-    color: #333;             
+    /* O 'margin: 0 auto;' aqui está sendo sobrescrito pelo de cima, o que é ok,
+       mas é redundante se o de cima já está centralizando. */
+    padding: 80px;
+    border: 3px solid var(--cor-borda-titulo);
+    border-radius: 8px;
+    background-color:white;
+    color: #333;
     font-size: var(--font-size-s);
-
 }
 
 #email_login,#senha{
-    width: 500px;            
+    width: 500px;
     height: 60px;
-    padding: var(--padding-form);           
-    border: 3px solid var(--cor-borda-titulo);  
-    border-radius: 8px;      
-    background-color:white; 
-    color: #333;             
+    padding: var(--padding-form);
+    border: 3px solid var(--cor-borda-titulo);
+    border-radius: 8px;
+    background-color:white;
+    color: #333;
     font-size: var(--font-size-s);
     margin-bottom: var(--margin-m);
 }
@@ -66,34 +73,34 @@
 }
 
 #botao_entrar_login{
-    width: 400px;            
+    width: 400px;
     height: 40px;
-    padding: var(--padding-form);           
-    border: 3px solid var(--cor-de-fundo-botao-v);  
-    border-radius: 8px;      
-    background-color: var(--cor-de-fundo-botao-v); 
-    color: var(--cor-texto-claro);  
-    font-weight: bold;           
+    padding: var(--padding-form);
+    border: 3px solid var(--cor-de-fundo-botao-v);
+    border-radius: 8px;
+    background-color: var(--cor-de-fundo-botao-v);
+    color: var(--cor-texto-claro);
+    font-weight: bold;
     font-size: var(--font-size-s);
     margin-bottom: var(--margin-m);
     font-family: var(--fonte-texto);
     text-decoration: none;
-   
+
 }
 
 
 .campo_links_fim {
     width: 100%;
     display: flex;
-    justify-content: space-between; 
-    margin-top: var(--margin-m); 
+    justify-content: space-between;
+    margin-top: var(--margin-m);
 }
 
 .Link-Fim {
     font-family: var(--fonte-texto);
-    text-decoration: none; 
-    color:var(--cor-texto); 
-    font-size: var(--font-size-s); /
+    text-decoration: none;
+    color:var(--cor-texto);
+    font-size: var(--font-size-s);
 }
 
 .footer{

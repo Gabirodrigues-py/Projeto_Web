@@ -47,7 +47,6 @@
   </section>
 
   <section class="campo_login">
-    <!-- Começo do form ajustado -->
     <form action="login_process.php" method="post" class="formulario_login">
       <label for="email-login"></label>
       <input
@@ -71,11 +70,10 @@
         required
       ><br>
 
-      <!-- botão de submit, usando MESMAS classes para manter o estilo -->
-      <button 
-        type="submit" 
-        id="botao-entrar-login" 
-        class="botao-entrar formulario_login"
+      <button
+        type="submit"
+        id="botao_entrar_login"
+        class="botao_salvar"  {{!-- Alterada a classe de "botao-entrar formulario_login" para "botao_salvar" --}}
       >
         ENTRAR
       </button>
@@ -85,8 +83,7 @@
         <a href="send_e-mail_page.html" id="Redefinir-Senha" class="Link-Fim">Redefinir Senha</a>
       </nav>
     </form>
-    <!-- Fim do form ajustado -->
-  </section>
+    </section>
 
   <footer class="footer">
     <div class="footer_columns">
